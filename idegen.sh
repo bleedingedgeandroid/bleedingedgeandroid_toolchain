@@ -9,7 +9,12 @@ chmod +x build/envsetup.sh
 source build/envsetup.sh
 lunch gsi_arm64-userdebug
 repo init https://github.com/bleedingedgeandroid/manifest -b udc
-repo sync
+read -p "Do repo sync?: " -n 1 -r
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    repo sync --force-sync
+fi
 m -j32 idegen
 chmod +x development/tools/idegen/idegen.sh
 development/tools/idegen/idegen.sh

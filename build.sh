@@ -14,7 +14,7 @@ read -p "Do repo sync?: " -n 1 -r
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    repo sync
+    repo sync --force-sync
 fi
 
 m -j32
